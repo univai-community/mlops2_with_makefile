@@ -1,0 +1,51 @@
+// Dependency Graph
+digraph {
+	final_feature_matrix [label=final_feature_matrix]
+	y_train [label=y_train]
+	prefit_clf [label=prefit_clf]
+	validation_size_fraction [label=validation_size_fraction]
+	df_train [label=df_train]
+	train_valid_split_func [label=train_valid_split_func]
+	train_predictions [label=train_predictions]
+	t [label=t]
+	valid_predictions [label=valid_predictions]
+	random_state [label=random_state]
+	max_depth [label=max_depth]
+	X_valid [label=X_valid]
+	input_data_train [label=input_data_train]
+	X_train [label=X_train]
+	target_column [label=target_column]
+	index_column [label=index_column]
+	target [label=target]
+	fit_clf [label=fit_clf]
+	final_feature_matrix [label="UD: final_feature_matrix"]
+	validation_size_fraction [label="UD: validation_size_fraction"]
+	df_train [label="UD: df_train"]
+	t [label="UD: t"]
+	random_state [label="UD: random_state"]
+	target_column [label="UD: target_column"]
+	index_column [label="UD: index_column"]
+	max_depth [label="UD: max_depth"]
+	train_valid_split_func -> y_train
+	random_state -> prefit_clf
+	max_depth -> prefit_clf
+	final_feature_matrix -> train_valid_split_func
+	target -> train_valid_split_func
+	validation_size_fraction -> train_valid_split_func
+	random_state -> train_valid_split_func
+	fit_clf -> train_predictions
+	X_train -> train_predictions
+	t -> train_predictions
+	fit_clf -> valid_predictions
+	X_valid -> valid_predictions
+	t -> valid_predictions
+	train_valid_split_func -> X_valid
+	df_train -> input_data_train
+	index_column -> input_data_train
+	train_valid_split_func -> X_train
+	input_data_train -> target
+	target_column -> target
+	prefit_clf -> fit_clf
+	X_train -> fit_clf
+	y_train -> fit_clf
+}
